@@ -25,6 +25,8 @@ const page = async ({ params }: { params: { breeds: string } }) => {
           <form
             action={async () => {
               "use server";
+
+              //validasi cache dan redirect page menggunakan server action
               revalidatePath("/dogs");
               redirect("/dogs");
             }}

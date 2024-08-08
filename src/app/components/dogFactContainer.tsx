@@ -1,36 +1,39 @@
-"use client";
 import React, { useEffect, useState } from "react";
-import { getDogFacts } from "../libs/helper/getDogFacts";
+import FormButton from "./ui/formButton";
+import { getFact } from "../actions/actions";
 
-const DogFactContainer = () => {
-  interface Fact {
-    fact: string;
-    status: number;
-  }
-  const [dogFact, setDogFact] = useState<Fact>({ fact: "", status: 0 });
+const DogFactContainer = ({ fact }: { fact: string }) => {
+  // interface Fact {
+  //   fact: string;
+  //   status: number;
+  // }
+  // const [dogFact, setDogFact] = useState<Fact>({ fact: "", status: 0 });
 
-  useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/dog-fact`).then((res) => {
-      res.json().then((data) => {
-        console.log(data);
-        setDogFact(data);
-      });
-    });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/dog-fact`).then((res) => {
+  //     res.json().then((data) => {
+  //       setDogFact(data);
+  //     });
+  //   });
+  // }, []);
 
-  function handleClick() {
-    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/dog-fact`).then((res) => {
-      res.json().then((data) => {
-        console.log(data);
-        setDogFact(data);
-      });
-    });
-  }
+  // function handleClick() {
+  //   fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/dog-fact`).then((res) => {
+  //     res.json().then((data) => {
+  //       setDogFact(data);
+  //     });
+  //   });
+  // }
+  console.log(fact);
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-4">
-        {dogFact && <h3>{dogFact.fact}</h3>}
-        <button onClick={handleClick}>KLIK GW</button>
+      <div className="flex h-3/4 w-3/4 flex-col items-center justify-around gap-4 bg-white p-6 shadow-lg">
+        <div className="h-1/2">
+          <h3>{fact}</h3>
+        </div>
+        <form action={getFact}>
+          <FormButton>Get New Facts</FormButton>
+        </form>
       </div>
     </>
   );

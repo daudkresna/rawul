@@ -23,7 +23,6 @@ const page = async () => {
           <form
             action={async () => {
               "use server";
-              console.log(data.message);
               revalidateTag("/dogs");
             }}
           >

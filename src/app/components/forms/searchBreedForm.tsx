@@ -21,6 +21,7 @@ const SearchBreedForm = ({ dogList }: { dogList: string[] }) => {
       .join("");
 
   useEffect(() => {
+    //validasi input untuk menampilkan list breed yang sesuai
     if (breed != "") {
       let newBreedList = dogList.filter((item) => item.includes(breed));
       if (newBreedList.length > 0 && !newBreedList.includes(breed)) {

@@ -23,11 +23,6 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div>
-        <button className="rounded-md bg-[#e9edca] px-4 py-2 duration-300 ease-in-out hover:bg-[#CCD5AE]">
-          Login
-        </button>
-      </div>
     </div>
   );
 };

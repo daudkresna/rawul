@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import FormButton from "./ui/formButton";
 import { getFact } from "../actions/actions";
+import LikeButton from "./ui/likeButton";
 
 const DogFactContainer = ({ fact }: { fact: string }) => {
   // interface Fact {
@@ -27,7 +28,7 @@ const DogFactContainer = ({ fact }: { fact: string }) => {
   console.log(fact);
   return (
     <>
-      <div className="flex h-3/4 w-3/4 flex-col items-center justify-around gap-4 bg-white p-6 shadow-lg">
+      <div className="relative flex h-3/4 w-3/4 flex-col items-center justify-around gap-4 bg-white p-6 shadow-lg">
         <div className="h-1/2">
           <h3>{fact}</h3>
         </div>

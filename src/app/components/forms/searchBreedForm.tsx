@@ -72,6 +72,7 @@ const SearchBreedForm = ({ dogList }: { dogList: string[] }) => {
                   setBreedList([]);
                   inpuRef.current?.focus();
                 }}
+                className="cursor-pointer hover:bg-gray-100"
               >
                 {toPascalCase(breed)}
               </li>

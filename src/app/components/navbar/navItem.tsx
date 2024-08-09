@@ -16,9 +16,9 @@ export const NavItem = ({
   return (
     <Link
       href={href}
-      className={`${pathname === href ? `text-black after:scale-x-0` : ""} ${
+      className={`${pathname === href ? `text-[#D4A372] after:scale-x-0` : "text-black"} ${
         hover && pathname != href ? "after:scale-x-100" : "after:scale-x-0"
-      } text-black relative after:absolute after:w-full after:h-0.5 after:rounded-md after:origin-left after:left-0 after:-bottom-2 after:bg-[#D4A372] duration-300 after:ease-out after:transition-transform`}
+      } relative duration-300 after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:origin-left after:rounded-md after:bg-[#D4A372] after:transition-transform after:ease-out`}
       onMouseEnter={() => {
         setHover((prev) => !prev);
       }}

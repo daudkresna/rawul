@@ -32,7 +32,6 @@ const page = async () => {
 
         <div className="relative h-full w-full">
           <Image src={data.message} alt={data.message} fill quality={100} />
-          <LikeButton />
         </div>
       </div>
     </div>

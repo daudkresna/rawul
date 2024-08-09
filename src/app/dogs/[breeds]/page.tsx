@@ -17,6 +17,11 @@ const page = async ({ params }: { params: { breeds: string } }) => {
   const res = await fetch("https://dog.ceo/api/breeds/list/all");
   const breedData: DogData = await res.json();
   const breedList = Object.keys(breedData.message);
+
+  if (!breedList.includes(params.breeds)) {
+    redirect("/dogs");
+  }
+
   return (
     <div className="flex h-[calc(100vh-70px)] flex-col items-center justify-center gap-8 bg-slate-50">
       <div className="flex h-3/4 w-3/4 flex-row bg-white p-4 shadow-md">
@@ -25,7 +30,6 @@ const page = async ({ params }: { params: { breeds: string } }) => {
           <form
             action={async () => {
               "use server";
-
               //validasi cache dan redirect page menggunakan server action
               revalidatePath("/dogs");
               redirect("/dogs");
@@ -37,7 +41,6 @@ const page = async ({ params }: { params: { breeds: string } }) => {
 
         <div className="relative h-full w-full">
           <Image src={data.message} alt={data.message} fill quality={100} />
-          <LikeButton />
         </div>
       </div>
     </div>
